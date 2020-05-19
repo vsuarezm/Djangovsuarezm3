@@ -1,0 +1,17 @@
+{% extends 'measure/base.html' %}
+{% block content %}
+<div class="container">
+    <form method="get">
+        <input type="number" name="cedula" placehoNombrelder="cedula">
+        <input type="text" name="nombre" placeholder="nombre">
+        <input type="text" name="actividad" placeholder="actividad">
+        <input type="number" name="estrato" placeholder="estrato">
+        <button type="submit">Adicionar</button>
+    </form>
+    {% for measure in measures %}
+    <ul class="list-group">
+        <li class="list-group-item">{{measure.cedula}} | {{measure.nombre}} | {{measure.actividad}} | {{measure.estrato}}</li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

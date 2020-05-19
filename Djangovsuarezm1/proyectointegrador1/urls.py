@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from measure import views
+from measure import views as measure_views
 
 router = routers.DefaultRouter()
 router.register(r'measures', views.MeasureViewSet)
@@ -26,4 +27,8 @@ router.register(r'measures', views.MeasureViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     path('admin/', admin.site.urls),
+    
+    
 ]
+
+

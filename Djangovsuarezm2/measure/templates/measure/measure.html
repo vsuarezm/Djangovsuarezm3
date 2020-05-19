@@ -2,12 +2,32 @@
 {% block content %}
 <div class="container">
     <form method="get">
-        <input type="number" name="value">
+        <input type="number" name="cedula" placeholder="Cédula">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <select name="actividad">
+            <option value="0">Actividad</option>
+            <option value="1">Agricultura</option>
+            <option value="2">Comercio</option>
+            <option value="3">Investigacion</option>
+            <option value="4">Insumos</option>
+            <option value="3">Transporte</option>
+
+        </select>
+        <select name="estrato">
+            <option value="0">Estrato</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+
+            </select>
         <button type="submit">Adicionar</button>
     </form>
     {% for measure in measures %}
     <ul class="list-group">
-        <li class="list-group-item">{{measure.type}} = {{measure.value}}</li>
+        <li class="list-group-item">{{measure.cedula}} | {{measure.nombre}} | {{measure.actividad}} | {{measure.estrato}}</li>
     </ul>
     {% endfor %}
 </div>

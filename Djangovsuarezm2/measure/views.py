@@ -1,14 +1,17 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render,HttpResponse
 import requests
 
+# Create your views here.
 def measure(request):
+    if 'cedula' and 'nombre' and 'actividad' and 'estrato' in request.GET:
+        cedula = request.GET['cedula']
+        nombre = request.GET['nombre']
+        actividad = request.GET['actividad']
+        estrato = request.GET['estrato']
     # Verifica si hay un parámetro value en la petición GET
-    if 'value' in request.GET:
-        value = request.GET['value']
-        # Verifica si el value no esta vacio
-        if value:
+        if cedula:
             # Crea el json para realizar la petición POST al Web Service
-            args = {'type': 'ph', 'value': value}
+            args = {'cedula':cedula, 'nombre': nombre,'actividad':actividad,'estrato':estrato}
             response = requests.post('http://127.0.0.1:8000/measures/', args)
             # Convierte la respuesta en JSON
             measure_json = response.json()
